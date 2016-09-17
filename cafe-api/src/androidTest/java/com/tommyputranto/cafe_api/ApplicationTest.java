@@ -13,5 +13,5 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
 
 }*/
 public class ApplicationTest{
-    
+
 }
