@@ -9,6 +9,9 @@ import com.tommyputranto.cafe_api.core.MyObserver;
 import com.tommyputranto.cafe_api.dao.HomeListDao;
 import com.tommyputranto.cafe_api.repository.HomeListRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -16,8 +19,8 @@ import rx.schedulers.Schedulers;
  * Created by tommy on 9/17/16.
  */
 public class HomeActivityController extends BaseController<HomeActivityVM, HomeActivityBinding> {
-    public HomeListDao mHomeListDao;
     private HomeListRepository mHomeListRepository;
+    public List<HomeListDao.DATABean> mData = new ArrayList<>();
     @Override
     public HomeActivityVM createViewModel(HomeActivityBinding binding) {
         return new HomeActivityVM(mActivity, this, binding);
@@ -47,6 +50,8 @@ public class HomeActivityController extends BaseController<HomeActivityVM, HomeA
 
                     @Override
                     public void onApiResultOk(HomeListDao homeListDao) {
+                        mData.addAll(homeListDao.getDATA());
+                        mViewModel.adapterNotify();
 
                     }
                 }));

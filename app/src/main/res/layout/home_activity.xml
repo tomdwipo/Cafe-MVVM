@@ -19,14 +19,15 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="224dp" />
-        </RelativeLayout>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:nestedScrollingEnabled="false"
+            app:adapter="@{vm.bAdapter}"
+            app:layoutManager="@{vm.bLayoutManager}"
+            tools:listitem="@layout/home_list" />
     </LinearLayout>
 
 </layout>

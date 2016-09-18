@@ -3,8 +3,6 @@ package com.tommyputranto.cafe.mvvm.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import org.greenrobot.eventbus.EventBus;
-
 import id.gits.mvvmcore.activity.GitsActivity;
 import id.gits.mvvmcore.controller.GitsController;
 
@@ -19,14 +17,14 @@ public abstract class BaseActivity<C extends GitsController> extends GitsActivit
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        EventBus.getDefault().register(this);
+//        EventBus.getDefault().register(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
 
-        EventBus.getDefault().unregister(this);
+      //  EventBus.getDefault().unregister(this);
     }
 
 
